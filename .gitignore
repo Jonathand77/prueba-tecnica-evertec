@@ -1,0 +1,3 @@
+.env
+evidencias/*.json
+!evidencias/.gitkeep

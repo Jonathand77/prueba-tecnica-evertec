@@ -1,0 +1,150 @@
+{
+  "info": {
+    "name": "PlacetoPay Web Checkout - Prueba Tecnica Evertec",
+    "description": "Coleccion que replica el flujo basico de PlacetoPay Web Checkout: 1) Crear sesion de pago, 2) Consultar el resultado de la sesion. La autenticacion (login, tranKey, nonce, seed) se calcula automaticamente en el Pre-request Script de cada carpeta usando CryptoJS (incluido en el sandbox de Postman), replicando la formula oficial: tranKey = Base64(SHA256(nonce + seed + secretKey)).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Crear sesion de pago (Create session)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Genera el bloque de autenticacion requerido por PlacetoPay",
+              "// Formula oficial: tranKey = Base64(SHA256(nonce_crudo + seed + secretKey))",
+              "const secretKey = pm.environment.get('secretKey');",
+              "const login = pm.environment.get('login');",
+              "",
+              "function randomNonce(length) {",
+              "    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';",
+              "    let result = '';",
+              "    for (let i = 0; i < length; i++) {",
+              "        result += chars.charAt(Math.floor(Math.random() * chars.length));",
+              "    }",
+              "    return result;",
+              "}",
+              "",
+              "const rawNonce = randomNonce(16);",
+              "const seed = new Date().toISOString();",
+              "",
+              "const tranKey = CryptoJS.SHA256(rawNonce + seed + secretKey).toString(CryptoJS.enc.Base64);",
+              "const nonce = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(rawNonce));",
+              "",
+              "pm.environment.set('auth_login', login);",
+              "pm.environment.set('auth_tranKey', tranKey);",
+              "pm.environment.set('auth_nonce', nonce);",
+              "pm.environment.set('auth_seed', seed);",
+              "",
+              "// Referencia unica por ejecucion para poder identificar la transaccion",
+              "pm.environment.set('reference', 'PRUEBA-POSTMAN-' + Date.now());"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });",
+              "const json = pm.response.json();",
+              "pm.test('La respuesta trae processUrl y requestId', function () {",
+              "    pm.expect(json).to.have.property('processUrl');",
+              "    pm.expect(json).to.have.property('requestId');",
+              "});",
+              "if (json.requestId) {",
+              "    pm.environment.set('requestId', json.requestId);",
+              "    console.log('processUrl para completar el pago:', json.processUrl);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"locale\": \"es_CO\",\n  \"auth\": {\n    \"login\": \"{{auth_login}}\",\n    \"tranKey\": \"{{auth_tranKey}}\",\n    \"nonce\": \"{{auth_nonce}}\",\n    \"seed\": \"{{auth_seed}}\"\n  },\n  \"payment\": {\n    \"reference\": \"{{reference}}\",\n    \"description\": \"Prueba tecnica Evertec - Postman\",\n    \"amount\": {\n      \"currency\": \"COP\",\n      \"total\": 55000\n    }\n  },\n  \"expiration\": \"2026-12-30T00:00:00-05:00\",\n  \"returnUrl\": \"https://www.google.com/?returnUrl-prueba-tecnica-evertec\",\n  \"ipAddress\": \"127.0.0.1\",\n  \"userAgent\": \"PruebaTecnicaEvertec-Postman/1.0\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/session",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "session"]
+        }
+      }
+    },
+    {
+      "name": "2. Consultar sesion (Query session)",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const secretKey = pm.environment.get('secretKey');",
+              "const login = pm.environment.get('login');",
+              "",
+              "function randomNonce(length) {",
+              "    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';",
+              "    let result = '';",
+              "    for (let i = 0; i < length; i++) {",
+              "        result += chars.charAt(Math.floor(Math.random() * chars.length));",
+              "    }",
+              "    return result;",
+              "}",
+              "",
+              "const rawNonce = randomNonce(16);",
+              "const seed = new Date().toISOString();",
+              "",
+              "const tranKey = CryptoJS.SHA256(rawNonce + seed + secretKey).toString(CryptoJS.enc.Base64);",
+              "const nonce = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(rawNonce));",
+              "",
+              "pm.environment.set('auth_login', login);",
+              "pm.environment.set('auth_tranKey', tranKey);",
+              "pm.environment.set('auth_nonce', nonce);",
+              "pm.environment.set('auth_seed', seed);"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });",
+              "const json = pm.response.json();",
+              "pm.test('La respuesta trae status.status', function () {",
+              "    pm.expect(json).to.have.nested.property('status.status');",
+              "});",
+              "console.log('Estado final de la sesion:', json.status && json.status.status);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"auth\": {\n    \"login\": \"{{auth_login}}\",\n    \"tranKey\": \"{{auth_tranKey}}\",\n    \"nonce\": \"{{auth_nonce}}\",\n    \"seed\": \"{{auth_seed}}\"\n  }\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/session/{{requestId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "session", "{{requestId}}"]
+        }
+      }
+    }
+  ]
+}
