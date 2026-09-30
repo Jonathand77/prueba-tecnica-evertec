@@ -1,0 +1,9 @@
+{
+    "requestId": 3872075,
+    "status": {
+        "status": "PENDING",
+        "reason": "PT",
+        "message": "La petición se encuentra pendiente",
+        "date": "2026-09-30T12:01:57-05:00"
+    }
+}

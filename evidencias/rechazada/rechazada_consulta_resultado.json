@@ -1,0 +1,120 @@
+{
+    "requestId": 3872068,
+    "status": {
+        "status": "REJECTED",
+        "reason": "?C",
+        "message": "La petición ha sido cancelada por el usuario",
+        "date": "2026-09-30T12:34:04-05:00"
+    },
+    "request": {
+        "locale": "es_CO",
+        "payer": {
+            "document": "1000123123",
+            "documentType": "CC",
+            "name": "Jonathan",
+            "surname": "Fernandez",
+            "email": "jonathanfdez62@gmail.com",
+            "mobile": "+573101231212"
+        },
+        "payment": {
+            "reference": "PRUEBA-POSTMAN-1790787115441",
+            "description": "Prueba tecnica Evertec - Postman",
+            "amount": {
+                "currency": "COP",
+                "total": 55000
+            },
+            "allowPartial": false,
+            "subscribe": false
+        },
+        "fields": [
+            {
+                "keyword": "_processUrl_",
+                "value": "https://checkout-test.placetopay.com/spa/session/3872068/8908ea1ada22ea4e88892e4972d802f4",
+                "displayOn": "none"
+            },
+            {
+                "keyword": "_session_",
+                "value": 3872068,
+                "displayOn": "none"
+            }
+        ],
+        "returnUrl": "https://www.google.com/?returnUrl-prueba-tecnica-evertec",
+        "ipAddress": "127.0.0.1",
+        "userAgent": "PruebaTecnicaEvertec-Postman/1.0",
+        "expiration": "2026-12-30T00:00:00-05:00"
+    },
+    "payment": [
+        {
+            "amount": {
+                "to": {
+                    "total": 55000,
+                    "currency": "COP"
+                },
+                "from": {
+                    "total": 55000,
+                    "currency": "COP"
+                },
+                "factor": 1
+            },
+            "status": {
+                "date": "2026-09-30T11:53:48-05:00",
+                "reason": "05",
+                "status": "REJECTED",
+                "message": "Negada, puede ser tarjeta bloqueada o timeout"
+            },
+            "receipt": "476650467406719",
+            "refunded": false,
+            "franchise": "CR_VS",
+            "reference": "PRUEBA-POSTMAN-1790787115441",
+            "issuerName": "BANCO DE GUAYAQUIL, S.A.",
+            "authorization": "000000",
+            "paymentMethod": "visa",
+            "processorFields": [
+                {
+                    "value": "011271442",
+                    "keyword": "merchantCode",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "00057742",
+                    "keyword": "terminalNumber",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "411076",
+                    "keyword": "bin",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "1027",
+                    "keyword": "expiration",
+                    "displayOn": "none"
+                },
+                {
+                    "value": 1,
+                    "keyword": "installments",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "0016",
+                    "keyword": "lastDigits",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "9713103fa6652415e60c2ee6db67634f",
+                    "keyword": "id",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "050",
+                    "keyword": "b24",
+                    "displayOn": "none"
+                }
+            ],
+            "internalReference": 1599917923,
+            "paymentMethodName": "Visa"
+        }
+    ],
+    "subscription": null,
+    "_httpCode": 200
+}

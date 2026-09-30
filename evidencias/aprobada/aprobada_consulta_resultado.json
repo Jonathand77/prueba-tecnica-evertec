@@ -1,0 +1,120 @@
+{
+    "requestId": 3872033,
+    "status": {
+        "status": "APPROVED",
+        "reason": "00",
+        "message": "La petición ha sido aprobada exitosamente",
+        "date": "2026-09-30T12:34:03-05:00"
+    },
+    "request": {
+        "locale": "es_CO",
+        "payer": {
+            "document": "1000123123",
+            "documentType": "CC",
+            "name": "Jonathan",
+            "surname": "Fernandez",
+            "email": "jonathanfdez62@gmail.com",
+            "mobile": "+573101231212"
+        },
+        "payment": {
+            "reference": "PRUEBA-POSTMAN-1790786081925",
+            "description": "Prueba tecnica Evertec - Postman",
+            "amount": {
+                "currency": "COP",
+                "total": 55000
+            },
+            "allowPartial": false,
+            "subscribe": false
+        },
+        "fields": [
+            {
+                "keyword": "_processUrl_",
+                "value": "https://checkout-test.placetopay.com/spa/session/3872033/16558dec7640e32a2a24b221afef5a37",
+                "displayOn": "none"
+            },
+            {
+                "keyword": "_session_",
+                "value": 3872033,
+                "displayOn": "none"
+            }
+        ],
+        "returnUrl": "https://www.google.com/?returnUrl-prueba-tecnica-evertec",
+        "ipAddress": "127.0.0.1",
+        "userAgent": "PruebaTecnicaEvertec-Postman/1.0",
+        "expiration": "2026-12-30T00:00:00-05:00"
+    },
+    "payment": [
+        {
+            "amount": {
+                "to": {
+                    "total": 55000,
+                    "currency": "COP"
+                },
+                "from": {
+                    "total": 55000,
+                    "currency": "COP"
+                },
+                "factor": 1
+            },
+            "status": {
+                "date": "2026-09-30T11:38:10-05:00",
+                "reason": "00",
+                "status": "APPROVED",
+                "message": "Aprobada -"
+            },
+            "receipt": "680722442879",
+            "refunded": false,
+            "franchise": "CR_VS",
+            "reference": "PRUEBA-POSTMAN-1790786081925",
+            "issuerName": "BANCO DE GUAYAQUIL, S.A.",
+            "authorization": "630957",
+            "paymentMethod": "visa",
+            "processorFields": [
+                {
+                    "value": "011271442",
+                    "keyword": "merchantCode",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "00057742",
+                    "keyword": "terminalNumber",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "411076",
+                    "keyword": "bin",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "1027",
+                    "keyword": "expiration",
+                    "displayOn": "none"
+                },
+                {
+                    "value": 1,
+                    "keyword": "installments",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "0081",
+                    "keyword": "lastDigits",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "20ddec391ee9e55d33763238812e13d5",
+                    "keyword": "id",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "000",
+                    "keyword": "b24",
+                    "displayOn": "none"
+                }
+            ],
+            "internalReference": 1599917900,
+            "paymentMethodName": "Visa"
+        }
+    ],
+    "subscription": null,
+    "_httpCode": 200
+}
