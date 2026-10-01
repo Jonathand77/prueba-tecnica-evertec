@@ -1,0 +1,120 @@
+{
+    "requestId": 3872255,
+    "status": {
+        "status": "REJECTED",
+        "reason": "?C",
+        "message": "La petición ha sido cancelada por el usuario",
+        "date": "2026-09-30T15:51:08-05:00"
+    },
+    "request": {
+        "locale": "es_CO",
+        "payer": {
+            "document": "1000123123",
+            "documentType": "CC",
+            "name": "Jonathan",
+            "surname": "Fernandez",
+            "email": "jonathanfdez62@gmail.com",
+            "mobile": "+573101231212"
+        },
+        "payment": {
+            "reference": "TIENDA-20260930204419-389",
+            "description": "3x Gorra",
+            "amount": {
+                "currency": "COP",
+                "total": 105000
+            },
+            "allowPartial": false,
+            "subscribe": false
+        },
+        "fields": [
+            {
+                "keyword": "_processUrl_",
+                "value": "https://checkout-test.placetopay.com/spa/session/3872255/4c43d227971113a4cd0e1c9a24a4d8d3",
+                "displayOn": "none"
+            },
+            {
+                "keyword": "_session_",
+                "value": 3872255,
+                "displayOn": "none"
+            }
+        ],
+        "returnUrl": "http://localhost:8000\\/resultado.php",
+        "ipAddress": "::1",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "expiration": "2026-09-30T21:14:19+00:00"
+    },
+    "payment": [
+        {
+            "amount": {
+                "to": {
+                    "total": 105000,
+                    "currency": "COP"
+                },
+                "from": {
+                    "total": 105000,
+                    "currency": "COP"
+                },
+                "factor": 1
+            },
+            "status": {
+                "date": "2026-09-30T15:44:54-05:00",
+                "reason": "05",
+                "status": "REJECTED",
+                "message": "Negada, puede ser tarjeta bloqueada o timeout"
+            },
+            "receipt": "687716048965178",
+            "refunded": false,
+            "franchise": "CR_VS",
+            "reference": "TIENDA-20260930204419-389",
+            "issuerName": "BANCO DE GUAYAQUIL, S.A.",
+            "authorization": "000000",
+            "paymentMethod": "visa",
+            "processorFields": [
+                {
+                    "value": "011271442",
+                    "keyword": "merchantCode",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "00057742",
+                    "keyword": "terminalNumber",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "411076",
+                    "keyword": "bin",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "1027",
+                    "keyword": "expiration",
+                    "displayOn": "none"
+                },
+                {
+                    "value": 1,
+                    "keyword": "installments",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "0016",
+                    "keyword": "lastDigits",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "eb84530e9c624a2cb1836d3e24fa40fb",
+                    "keyword": "id",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "050",
+                    "keyword": "b24",
+                    "displayOn": "none"
+                }
+            ],
+            "internalReference": 1599918148,
+            "paymentMethodName": "Visa"
+        }
+    ],
+    "subscription": null,
+    "_httpCode": 200
+}

@@ -1,0 +1,120 @@
+{
+    "requestId": 3872251,
+    "status": {
+        "status": "APPROVED",
+        "reason": "00",
+        "message": "La petición ha sido aprobada exitosamente",
+        "date": "2026-09-30T15:51:08-05:00"
+    },
+    "request": {
+        "locale": "es_CO",
+        "payer": {
+            "document": "1000123123",
+            "documentType": "CC",
+            "name": "Jonathan",
+            "surname": "Fernandez",
+            "email": "jonathanfdez62@gmail.com",
+            "mobile": "+573101231212"
+        },
+        "payment": {
+            "reference": "TIENDA-20260930204143-140",
+            "description": "1x Camiseta, 1x Taza, 1x Gorra",
+            "amount": {
+                "currency": "COP",
+                "total": 105000
+            },
+            "allowPartial": false,
+            "subscribe": false
+        },
+        "fields": [
+            {
+                "keyword": "_processUrl_",
+                "value": "https://checkout-test.placetopay.com/spa/session/3872251/0ad384f2bf06f420b36a5475ef20d97a",
+                "displayOn": "none"
+            },
+            {
+                "keyword": "_session_",
+                "value": 3872251,
+                "displayOn": "none"
+            }
+        ],
+        "returnUrl": "http://localhost:8000\\/resultado.php",
+        "ipAddress": "::1",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "expiration": "2026-09-30T21:11:43+00:00"
+    },
+    "payment": [
+        {
+            "amount": {
+                "to": {
+                    "total": 105000,
+                    "currency": "COP"
+                },
+                "from": {
+                    "total": 105000,
+                    "currency": "COP"
+                },
+                "factor": 1
+            },
+            "status": {
+                "date": "2026-09-30T15:42:20-05:00",
+                "reason": "00",
+                "status": "APPROVED",
+                "message": "Aprobada -"
+            },
+            "receipt": "1599918145",
+            "refunded": false,
+            "franchise": "CR_VS",
+            "reference": "TIENDA-20260930204143-140",
+            "issuerName": "BANCO DE GUAYAQUIL, S.A.",
+            "authorization": "420540",
+            "paymentMethod": "visa",
+            "processorFields": [
+                {
+                    "value": "e071cb3d495a79885dd1db1b51d84249",
+                    "keyword": "id",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "000",
+                    "keyword": "b24",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "411076",
+                    "keyword": "bin",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "1027",
+                    "keyword": "expiration",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "0032",
+                    "keyword": "lastDigits",
+                    "displayOn": "none"
+                },
+                {
+                    "value": 1,
+                    "keyword": "installments",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "011271442",
+                    "keyword": "merchantCode",
+                    "displayOn": "none"
+                },
+                {
+                    "value": "00057742",
+                    "keyword": "terminalNumber",
+                    "displayOn": "none"
+                }
+            ],
+            "internalReference": 1599918145,
+            "paymentMethodName": "Visa"
+        }
+    ],
+    "subscription": null,
+    "_httpCode": 200
+}
