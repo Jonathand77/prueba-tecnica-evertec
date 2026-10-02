@@ -141,8 +141,7 @@ php src/query_session.php {requestId} aprobada
 │   ├── index.php                 Catálogo y carrito
 │   ├── checkout.php              Crea la sesión de pago (recalcula el total en servidor)
 │   ├── resultado.php             returnUrl: consulta y muestra el estado final
-│   ├── productos.php             Catálogo de productos (fuente única de precios)
-│   └── README.md                 Cómo ejecutar la tienda
+│   └── productos.php             Catálogo de productos (fuente única de precios)
 ├── src/
 │   ├── PlacetoPayClient.php      Cliente HTTP + lógica de autenticación
 │   ├── config.php                Carga de variables de entorno
